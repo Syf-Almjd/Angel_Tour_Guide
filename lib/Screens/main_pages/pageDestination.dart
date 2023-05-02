@@ -1,11 +1,8 @@
-import 'package:Angel/Screens/main_pages/WidgtsMaking/PicItemList.dart';
-import 'package:Angel/Screens/main_pages/pageExplore.dart';
-import 'package:Angel/Screens/main_pages/profiles.dart';
+import 'package:Angel/Screens/main_pages/components//PicItemList.dart';
+import 'package:Angel/Screens/main_pages/profiePage.dart';
 import 'package:Angel/controller/mainpage_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class pageDestination extends StatefulWidget {
@@ -26,7 +23,8 @@ class _pageDestinationState extends State<pageDestination> {
     'Miri, Sarawak',
     'Negeri Sembilan'
   ];
-  final DestinListInfo = ['Kundasang is a hill station in the district of Ranau in Sabah, Malaysia that lies along the bank of Kundasang Valley within the Crocker Range, and also neighboring the town of Pekan Nabalu.',
+  final DestinListInfo = [
+    'Kundasang is a hill station in the district of Ranau in Sabah, Malaysia that lies along the bank of Kundasang Valley within the Crocker Range, and also neighboring the town of Pekan Nabalu.',
     'Kuching, officially the City of Kuching, is the capital and the most populous city in the state of Sarawak in Malaysia. It is also the capital of Kuching Division.',
     'George Town is the colorful, multicultural capital of the Malaysian island of Penang. Once an important Straits of Malacca trading hub, the city is known for its British colonial buildings, Chinese shophouses and mosques.',
     'Langkawi, officially known by its sobriquet Langkawi, the Jewel of Kedah, is a duty-free island and an archipelago of 99 islands located some 30 km off the coast of northwestern Malaysia and a few kilometres south of Ko Tarutao, adjacent to the Thai border.',
@@ -48,45 +46,55 @@ class _pageDestinationState extends State<pageDestination> {
   Widget build(BuildContext context) {
     mainPageController.setDonePage(true);
     return Scaffold(
+      backgroundColor: HexColor("#fed8c3"),
+
       body: Column(
         children: [
           Container(
             height: 120,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: HexColor("#128201"),
+              color: HexColor("#9E98AF"),
               borderRadius: BorderRadius.circular(20),
             ),
             child: const Padding(
               padding: EdgeInsets.only(top: 30),
               child: Center(
                   child: Text(
-                    "What is your Destination?",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  )),
+                "What is your Destination?",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              )),
             ),
           ),
           Expanded(
               child: ListView.builder(
-                itemCount: DestinList.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 25),
-                    child: InkWell(
-                        onTap: () {
-                          mainPageController.setDestin(DestinList[index].toString());
-                          Get.snackbar("Saved", "Your choice was ${DestinList[index]}, Great Choice!");
-                          Navigator.pop(context);
-                          if (mainPageController.destin != "No Location was selected" && mainPageController.bdgt != "No Budget was selected" && mainPageController.duration  != "No Duration was selected")
-                          {
-                            Get.off(() => profiePage());
-                          }
-                        },
-                        child: PicItem(DestinList[index], DestinImgs[index], DestinListInfo[index],
-                        )),
-                  );
-                },
-              ))
+            itemCount: DestinList.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 25),
+                child: InkWell(
+                    onTap: () {
+                      mainPageController
+                          .setDestin(DestinList[index].toString());
+                      Get.snackbar("Saved",
+                          "Your choice was ${DestinList[index]}, Great Choice!");
+                      Navigator.pop(context);
+                      if (mainPageController.destin !=
+                              "No Location was selected" &&
+                          mainPageController.bdgt != "No Budget was selected" &&
+                          mainPageController.duration !=
+                              "No Duration was selected") {
+                        Get.to(() => profies());
+                      }
+                    },
+                    child: PicItem(
+                      DestinList[index],
+                      DestinImgs[index],
+                      DestinListInfo[index],
+                    )),
+              );
+            },
+          ))
         ],
       ),
     );

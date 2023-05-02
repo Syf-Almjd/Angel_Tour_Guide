@@ -1,14 +1,14 @@
+import 'package:Angel/controller/mainpage_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../controller/mainpage_controller.dart';
-
 class PicItem extends StatefulWidget {
   final String name;
   final String img;
   final String info;
+
   const PicItem(this.name, this.img, this.info);
 
   @override
@@ -23,9 +23,7 @@ class _PicItemState extends State<PicItem> {
     return Scrollbar(
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.circular(30)),
-
+            color: Colors.blueGrey, borderRadius: BorderRadius.circular(30)),
         child: Column(
           children: [
             Stack(
@@ -33,9 +31,18 @@ class _PicItemState extends State<PicItem> {
               children: [
                 Column(
                   children: const [
-                    Icon(Icons.downloading_outlined, size: 50, color: Colors.white,),
-                    SizedBox(height: 10,),
-                    Text("Loading...", style: TextStyle(fontSize: 15, color: Colors.white),),
+                    Icon(
+                      Icons.downloading_outlined,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Loading...",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
                   ],
                 ),
                 ClipRRect(
@@ -63,7 +70,8 @@ class _PicItemState extends State<PicItem> {
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Text(widget.info,
+              child: Text(
+                widget.info,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 8,

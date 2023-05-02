@@ -22,7 +22,7 @@ class _IntroSliderState extends State<IntroSlider> {
     "Get on started!"
   ];
   final messages = [
-    "We try to help millions of navigate around.\n\n\n\n Get more by Sliding right!",
+    "We try to help millions of navigate around.\n\n Get more by Sliding right!",
     "We provide you with links to different places with information and more. ",
     "This allows you to go wherever you need with us",
     "All you need is packaged!",
@@ -72,7 +72,8 @@ class _IntroSliderState extends State<IntroSlider> {
                             child: MyButton(
                               onPressed: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginScreen()),
+                                    builder: (context) =>
+                                        const LoginBodyScreen()),
                               ),
                               buttonText: 'Start',
                             ),

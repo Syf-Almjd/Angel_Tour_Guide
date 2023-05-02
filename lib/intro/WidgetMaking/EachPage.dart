@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class EachPage extends StatefulWidget {
@@ -36,20 +35,16 @@ class _EachPageState extends State<EachPage> {
               Expanded(
                 child: Center(
                   child: Padding(
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.fromLTRB(15, 10, 15, 5),
                     child: Text(
                       widget.message,
-                      style: const TextStyle(fontSize: 18, color: Colors.grey),
+                      style: const TextStyle(fontSize: 15, color: Colors.grey),
                       textAlign: TextAlign.center,
                     ),
                   ),
                 ),
               ),
-              Expanded(
-                child: Text(
-                  "",
-                ),
-              ),
+              const Spacer(),
             ],
           ),
         ),

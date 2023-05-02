@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'Screens/homepage/components/home_page_body.dart';
 import 'api/firebase_options.dart';
 
 void main() async {
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
             ),
       ),
       home: const AuthPage(),
-
     );
   }
 }

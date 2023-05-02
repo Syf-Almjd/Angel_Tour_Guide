@@ -36,12 +36,10 @@ class _SignUpBodyScreenState extends State<SignUpBodyScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  child: Image.asset(
-                    'assets/logo.png',
-                    height: 150,
-                    width: 150,
-                  ),
+                Image.asset(
+                  'assets/logo.png',
+                  height: 150,
+                  width: 150,
                 ),
                 Stack(
                   children: [

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 import '../../../controller/mainpage_controller.dart';
 
 class PicPackage extends StatefulWidget {
@@ -40,9 +41,18 @@ class _PicPackageState extends State<PicPackage> {
                 children: [
                   Column(
                     children: const [
-                      Icon(Icons.downloading_outlined, size: 50, color: Colors.white,),
-                      SizedBox(height: 10,),
-                      Text("Loading...", style: TextStyle(fontSize: 15, color: Colors.white),),
+                      Icon(
+                        Icons.downloading_outlined,
+                        size: 50,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Loading...",
+                        style: TextStyle(fontSize: 15, color: Colors.white),
+                      ),
                     ],
                   ),
                   ClipRRect(
@@ -58,7 +68,7 @@ class _PicPackageState extends State<PicPackage> {
               ),
             ),
             Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(widget.name,
                     style: const TextStyle(
@@ -66,11 +76,19 @@ class _PicPackageState extends State<PicPackage> {
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
                     )),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: [
-                    const Icon(Icons.date_range, color: Colors.white,size: 18,),
-                    const SizedBox(width: 5,),
+                    const Icon(
+                      Icons.date_range,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     Text(
                       widget.date,
                       style: const TextStyle(
@@ -82,11 +100,19 @@ class _PicPackageState extends State<PicPackage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
-                    const Icon(Icons.timer_sharp, color: Colors.white,size: 18,),
-                    const SizedBox(width: 5,),
+                    const Icon(
+                      Icons.timer_sharp,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     Text(
                       widget.time,
                       style: const TextStyle(
@@ -98,20 +124,23 @@ class _PicPackageState extends State<PicPackage> {
                     ),
                   ],
                 ),
-
-                const SizedBox(height: 15,),
-                Text(widget.price,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
+                const SizedBox(
+                  height: 15,
                 ),
-
+                Text(
+                  widget.price,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 Row(
                   children: [
-                    const Icon(Icons.star, color: Colors.white,size: 18),
-                    const SizedBox(width: 5,),
+                    const Icon(Icons.star, color: Colors.white, size: 18),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     Text(
                       'Rated ${widget.rating} out of 5',
                       style: const TextStyle(

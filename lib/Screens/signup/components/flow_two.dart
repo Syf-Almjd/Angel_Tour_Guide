@@ -1,7 +1,6 @@
 import 'package:Angel/components/my_button.dart';
 import 'package:Angel/controller/flow_controller.dart';
 import 'package:Angel/controller/sign_up_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -110,11 +109,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
                     height: 8,
                   ),
                   TextField(
-                    onChanged: (value) {
-                      signUpController.setName(value);
-                    },
                     onSubmitted: (value) {
                       signUpController.setName(value);
+
                     },
                     controller: nameController.value,
                     cursorColor: HexColor("#4f4f4f"),

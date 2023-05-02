@@ -1,4 +1,3 @@
-import 'package:Angel/Screens/homepage/home_page.dart';
 import 'package:Angel/controller/flow_controller.dart';
 import 'package:Angel/controller/sign_up_controller.dart';
 import 'package:email_validator/email_validator.dart';
@@ -7,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+
+import '../../homepage/HomePage.dart';
 
 class SignUpThree extends StatefulWidget {
   const SignUpThree({super.key});
@@ -19,6 +20,7 @@ class _SignUpThreeState extends State<SignUpThree> {
   FlowController flowController = Get.put(FlowController());
   var selectedCard = 'Healthy';
   SignUpController signUpController = Get.put(SignUpController());
+  bool isLoading = false;
 
   String _errorMessage = "";
 
@@ -80,67 +82,69 @@ class _SignUpThreeState extends State<SignUpThree> {
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        _buildInfoCard(
-                            "assets/healthy.png", "Healthy", "I am all OK!"),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        _buildInfoCard("assets/blind.png", "Sightlessness",
-                            "Unable to see clearly."),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        _buildInfoCard("assets/deaf.png", "Deafness",
-                            "Can't hear clearly."),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        _buildInfoCard("assets/paralysis.png", "Paralysis",
-                            "Loss in muscle function."),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        _buildInfoCard("assets/intellectual.png",
-                            "Intellectual", "Mentality built different."),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        _buildInfoCard("assets/disabled.png", "Other",
-                            "Other disability. "),
-                        SizedBox(
-                          height: 50,
-                        ),
-                        SizedBox(
-                          width: 300,
-                          height: 60.0,
-                          child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                backgroundColor: HexColor("#44564a"),
-
-                                primary: Colors.white,
-                                elevation: 20, //<-- SEE HERE
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0)),
-                              ),
-                              onPressed: () async {
-                                try {
-                                  signUpController.postSignUpDetails();
-                                  Get.snackbar("Success",
-                                      "Thank you");
-                                  Get.offAll(HomeScreen());
-                                } on FirebaseAuthException catch (ex) {
-                                  Get.snackbar("Error", "${ex.message}");
-                                }
-                              },
-                              child: Text(
-                                "Finish & Sign Up!",
-                              )),
-                        )
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      _buildInfoCard(
+                          "assets/healthy.png", "Healthy", "I am all OK!"),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildInfoCard("assets/blind.png", "Sightlessness",
+                          "Unable to see clearly."),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildInfoCard(
+                          "assets/deaf.png", "Deafness", "Can't hear clearly."),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildInfoCard("assets/paralysis.png", "Paralysis",
+                          "Loss in muscle function."),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildInfoCard("assets/intellectual.png", "Intellectual",
+                          "Mentality built different."),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      _buildInfoCard(
+                          "assets/disabled.png", "Other", "Other disability. "),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      SizedBox(
+                        width: 300,
+                        height: 60.0,
+                        child:   isLoading? const Center(child: CircularProgressIndicator()) : OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              backgroundColor: HexColor("#44564a"),
+                              primary: Colors.white,
+                              elevation: 20, //<-- SEE HERE
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                            ),
+                            onPressed: () async {
+                              try {
+                                setState(() {
+                                  isLoading = true;
+                                });
+                                signUpController.postSignUpDetails();
+                                Get.snackbar("Success", "Thank you");
+                                Get.offAll(() => const HomeScreenBody());
+                              } on FirebaseAuthException catch (ex) {
+                                setState(() {
+                                  isLoading = false;
+                                });
+                                Get.snackbar("Error", "${ex.message}");
+                              }
+                            },
+                            child: const Text(
+                              "Finish & Sign Up!",
+                            )),
+                      )
+                    ],
                   ),
                   const SizedBox(
                     height: 5,
@@ -166,7 +170,7 @@ class _SignUpThreeState extends State<SignUpThree> {
               borderRadius: BorderRadius.circular(10.0),
               color: name == selectedCard
                   ? Colors.lightGreenAccent
-                  : Color(0xCDC7C1FF),
+                  : const Color(0xCDC7C1FF),
               border: Border.all(
                   color: photo == selectedCard
                       ? Colors.transparent

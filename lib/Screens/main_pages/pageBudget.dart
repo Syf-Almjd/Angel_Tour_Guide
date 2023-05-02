@@ -1,5 +1,4 @@
-import 'package:Angel/Screens/main_pages/pageExplore.dart';
-import 'package:Angel/Screens/main_pages/profiles.dart';
+import 'package:Angel/Screens/main_pages/profiePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +6,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../controller/mainpage_controller.dart';
-
 
 class pageBudget extends StatefulWidget {
   const pageBudget({Key? key}) : super(key: key);
@@ -35,17 +33,19 @@ class _pageBudgetState extends State<pageBudget> {
   Widget build(BuildContext context) {
     mainPageController.setDonePage(true);
     return Scaffold(
+      backgroundColor: HexColor("#fed8c3"),
+
       body: Column(
         children: [
           Container(
             height: 120,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: HexColor("#128201"),
+              color: HexColor("#9E98AF"),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 30),
+            child: const Padding(
+              padding: EdgeInsets.only(top: 30),
               child: Center(
                   child: Text(
                 "What is your Budget?",
@@ -55,13 +55,13 @@ class _pageBudgetState extends State<pageBudget> {
           ),
           Expanded(
               child: Center(
-                child: ListView.builder(
-                    itemCount: BUDlist.length,
-                    itemBuilder: (context, index) {
-                      return BudgetList(BUDlist[index]);
-                    },
-                ),
-              ))
+            child: ListView.builder(
+              itemCount: BUDlist.length,
+              itemBuilder: (context, index) {
+                return BudgetList(BUDlist[index]);
+              },
+            ),
+          ))
         ],
       ),
     );
@@ -76,18 +76,23 @@ class _pageBudgetState extends State<pageBudget> {
               mainPageController.setBudget(index.toString());
               Get.snackbar("Saved", "Your choice was $index");
               Navigator.pop(context);
-              if (mainPageController.destin != "No Location was selected" && mainPageController.bdgt != "No Budget was selected" && mainPageController.duration  != "No Duration was selected")
-              {
-                Get.off(() => profiePage());
+              if (mainPageController.destin != "No Location was selected" &&
+                  mainPageController.bdgt != "No Budget was selected" &&
+                  mainPageController.duration != "No Duration was selected") {
+                Get.to(() => profies());
               }
             },
             child: Container(
                 height: 70,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Colors.green,
+                    color:HexColor("#B9B3CA"),
                     borderRadius: BorderRadius.circular(20)),
-                child: Center(child: Text(index, style: TextStyle(color: Colors.white, fontSize: 17),)))),
+                child: Center(
+                    child: Text(
+                  index,
+                  style: const TextStyle(color: Colors.white, fontSize: 17),
+                )))),
       ),
     );
   }

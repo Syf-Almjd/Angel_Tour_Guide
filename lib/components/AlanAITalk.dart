@@ -17,13 +17,12 @@ class alan_ai {
 
     /// Add button state handler
     AlanVoice.onButtonState.add((state) {
-
       debugPrint("got new button state ${state.name}");
     });
 
     /// Add command handler
     AlanVoice.onCommand.add((command) {
-        debugPrint("got new command ${command.toString()}");
+      debugPrint("got new command ${command.toString()}");
     });
 
     /// Add event handler
@@ -55,7 +54,6 @@ class alan_ai {
     void _sendText() {
       /// Provide text as string param
       AlanVoice.sendText("Hello from Alan!");
-
     }
 
     /// Play any text via Alan Button
@@ -89,6 +87,4 @@ class alan_ai {
       AlanVoice.setVisualState(visualState);
     }
   }
-
-  }
-
+}

@@ -1,13 +1,49 @@
 {
   "project_info": {
     "project_number": "823861954017",
-    "project_id": "angel-c53f2",
-    "storage_bucket": "angel-c53f2.appspot.com"
+    "project_id": "angle-c53f2",
+    "storage_bucket": "angle-c53f2.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:823861954017:android:2b3542202adc15960efea0",
+        "android_client_info": {
+          "package_name": "com.example.angle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823861954017-2cm9h9cm9hhr1ijhvj4d8ojbo91o7oi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJbKROJNPbrxs5gdiBfLOyOGuqnX7hb70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823861954017-2cm9h9cm9hhr1ijhvj4d8ojbo91o7oi5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "823861954017-gt3mqmgtmg5gr7uo5hv6fod83jik6sh2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.angle"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823861954017:android:7c2aa0cf177e9c570efea0",
         "android_client_info": {
           "package_name": "com.mjd.angel"
         }
@@ -29,6 +65,13 @@
             {
               "client_id": "823861954017-2cm9h9cm9hhr1ijhvj4d8ojbo91o7oi5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "823861954017-gt3mqmgtmg5gr7uo5hv6fod83jik6sh2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.angle"
+              }
             }
           ]
         }

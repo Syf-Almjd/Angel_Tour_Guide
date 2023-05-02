@@ -16,13 +16,12 @@ class SignUpController extends GetxController {
     update();
   }
 
-  String? _name;
-
-  String? get name => _name;
+  String? User_name;
+  String? get name => User_name;
 
   void setName(String? text) {
-    _name = text;
-    debugPrint("Updated name: $name");
+    User_name = text;
+    debugPrint("Updated name: $User_name");
     update();
   }
 
@@ -97,7 +96,6 @@ class SignUpController extends GetxController {
         email: email,
         password: password,
       );
-
       return true;
     } catch (error) {
       if (error is FirebaseAuthException) {

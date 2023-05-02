@@ -1,11 +1,10 @@
-import 'package:Angel/Screens/homepage/components/MainFrame_Wedget_builder.dart';
+import 'package:Angel/Screens/homepage/components/MainItems_builder.dart';
 import 'package:Angel/components/AlanAITalk.dart';
 import 'package:Angel/controller/mainpage_controller.dart';
 import 'package:alan_voice/alan_voice.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class HomeScreenBody extends StatefulWidget {
@@ -19,6 +18,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   mainpageController mainPageController = Get.put(mainpageController());
 
   final user = FirebaseAuth.instance.currentUser!;
+
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -49,7 +49,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                           bottomLeft: Radius.circular(50),
                           bottomRight: Radius.circular(50))),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
+                    padding: const EdgeInsets.fromLTRB(30, 45, 30, 20),
                     child: Column(
                       children: [
                         const Text(
@@ -57,7 +57,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                           style: TextStyle(fontSize: 10, color: Colors.black),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 15,
                         ),
                         GestureDetector(
                           onTapDown: (_) =>

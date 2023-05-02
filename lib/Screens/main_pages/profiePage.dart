@@ -1,62 +1,52 @@
-import 'package:Angel/Screens/main_pages/profiePage.dart';
+import 'package:Angel/Screens/main_pages/paymentPage.dart';
 import 'package:alan_voice/alan_voice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../controller/mainpage_controller.dart';
-import 'components/pickPackage.dart';
+import 'components/EachProfile.dart';
 
-class pageExplore extends StatefulWidget {
-  const pageExplore({Key? key}) : super(key: key);
+class profies extends StatefulWidget {
+  const profies({Key? key}) : super(key: key);
 
   @override
-  State<pageExplore> createState() => _pageExploreState();
+  State<profies> createState() => _profiesState();
 }
 
-class _pageExploreState extends State<pageExplore> {
+class _profiesState extends State<profies> {
   mainpageController mainPageController = Get.put(mainpageController());
-  final NameList = [
-    'Package A',
-    'Package B',
-    'Package C',
-    'Package D',
-    'Package E',
+
+  final names = [
+    'Mr. Hakkinen',
+    'Ms. Mardiana',
+    'Mr. Robert',
+    'Ms. Elyana',
   ];
-  final dateList = [
-    '5 Days & 4 Nights',
-    '9 Days & 8 Nights',
-    '4 Days & 3 Nights',
-    '3 Days & 2 Nights',
-    '4 Days & 3 Nights',
+
+  final info = [
+    'He is a licensed tour guide from Angle Travel Agency, 28 years old and Dusun ethnicity',
+    'A muslim intern student from Angle Travel Agency, live in Kundasang and she knows the place so much better even though she is a practical student ',
+    'He is a local from Kundasang, 32 years old and has experience in guided tourist',
+    'A very smart local, and capable of guiding people around easily all over Malaysia.',
   ];
-  final timeList = [
-    '8:00 AM',
-    '7:00 AM',
-    '3:00 PM',
-    '3:00 PM',
-    '10:00 PM',
+  final imgs = [
+    'https://i.pinimg.com/736x/b9/a1/0b/b9a10b6f3e2e9153e688cec0d45c1610.jpg',
+    'https://pm1.narvii.com/6497/f61afd481f01415bc36805125881538a81e24a0b_00.jpg',
+    'https://pm1.narvii.com/6826/731e11904562dd643793af8498beecabed442fe5v2_hq.jpg',
+    'https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/d/7/9/d79976f98becc26397450b449d6127fb1cb2f272.jpeg',
   ];
-  final priceList = [
-    'RM 1,890',
-    'RM 1,377',
-    'RM 333',
-    'RM 435',
-    'RM 550',
+  final phone = [
+    '601129389626',
+    '601129389626',
+    '601129389626',
+    '601129389626',
   ];
-  final rateList = [
-    '5',
-    '4.8',
-    '4.5',
-    '4.2',
-    '4.5',
-  ];
-  final ImgsList = [
-    'https://emseventsandtours.com/wp-content/uploads/2022/06/Malaysia.jpg',
-    'https://www.travelmate.com.pk/wp-content/uploads/2019/05/malaysia-tour-package.png',
-    'https://pbs.twimg.com/media/C6egF87WUAMe_S7.jpg',
-    'https://realbreezedavaotours.com/wp-content/uploads/2018/05/InternationalTourPackage.Malaysia.png',
-    'https://i.pinimg.com/originals/57/48/dc/5748dcc2e9f3e38204f4571c17b3ed9f.jpg',
+  final email = [
+    'elyanaroseli851@gmail.com',
+    'elyanaroseli851@gmail.com',
+    'elyanaroseli851@gmail.com',
+    'elyanaroseli851@gmail.com',
   ];
 
   @override
@@ -68,7 +58,7 @@ class _pageExploreState extends State<pageExplore> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: HexColor("#ffffff"),
+              color: HexColor("#9E98AF"),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Padding(
@@ -77,8 +67,8 @@ class _pageExploreState extends State<pageExplore> {
                   child: Column(
                 children: [
                   const Text(
-                    "You can choose one of our packages:",
-                    style: TextStyle(color: Colors.black54, fontSize: 18),
+                    "Choose Your Tour Guide:",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                   Padding(
@@ -87,7 +77,7 @@ class _pageExploreState extends State<pageExplore> {
                       width: double.maxFinite,
                       decoration: BoxDecoration(
                         color: Colors.amber,
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -121,20 +111,20 @@ class _pageExploreState extends State<pageExplore> {
           ),
           Expanded(
               child: ListView.builder(
-            itemCount: ImgsList.length,
+            itemCount: names.length,
             itemBuilder: (context, index) {
               return InkWell(
                   onTap: () {
-                    mainPageController.setPackage(NameList[index].toString());
-                    Get.to(() => const profies());
+                    mainPageController
+                        .setSelectedProfile(names[index].toString());
+                    Get.to(() => const payment());
                   },
-                  child: PicPackage(
-                    ImgsList[index],
-                    NameList[index],
-                    dateList[index],
-                    timeList[index],
-                    priceList[index],
-                    rateList[index],
+                  child: SelectProfiles(
+                    names[index],
+                    info[index],
+                    imgs[index],
+                    phone[index],
+                    email[index],
                   ));
             },
           ))

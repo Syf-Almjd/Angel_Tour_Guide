@@ -78,7 +78,11 @@ class _SelectProfilesState extends State<SelectProfiles> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Text("Loading...", style: TextStyle(fontSize: 10, color: Colors.white),),
+                              Text(
+                                "Loading...",
+                                style: TextStyle(
+                                    fontSize: 10, color: Colors.white),
+                              ),
                             ],
                           ),
                           ClipRRect(
