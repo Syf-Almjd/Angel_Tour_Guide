@@ -1,4 +1,3 @@
-import 'package:Angel/controller/sign_up_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -114,7 +113,7 @@ class mainpageController extends GetxController {
   }
 
   String? _disabilityType;
-  String? get disabilityType => _disabilityType;
+  String? get thedisabilityType => _disabilityType;
 
   void setDisabilityType(String? text) {
     if (text==null){
@@ -142,7 +141,7 @@ class mainpageController extends GetxController {
       "Duration": duration,
       "Package Name": package,
       "Agent Requested": select_profile,
-      "Disability": _disabilityType,
+      "Disability": thedisabilityType,
     });
   }
 }

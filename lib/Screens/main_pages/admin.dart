@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class AdminPage extends StatefulWidget {
@@ -69,9 +68,9 @@ class _AdminPageState extends State<AdminPage> {
                 if (snapshot.data!.docs.length == 1) {
                   return const Center(child: Text('No new orders to display'));
                 }
-                snapshot.data!.docs.forEach((element) {
+                for (var element in snapshot.data!.docs) {
                   ORDERSdataID.add(element.id);
-                });
+                }
                 List<Map<String, dynamic>> items = snapshot.data!.docs
                     .where((doc) => doc.id !="test")
                     .map((doc) => doc.data() as Map<String, dynamic>)
