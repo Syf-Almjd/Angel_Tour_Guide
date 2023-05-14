@@ -36,16 +36,6 @@ class SignUpController extends GetxController {
     update();
   }
 
-  String? _password;
-
-  String? get password => _password;
-
-  void setPassword(String? text) {
-    _password = text;
-    debugPrint("Updated password: $password");
-    update();
-  }
-
   String? _mobileNumber;
 
   String? get mobileNumber => _mobileNumber;
@@ -67,12 +57,15 @@ class SignUpController extends GetxController {
   }
 
   String? _disabilityType;
-
   String? get disabilityType => _disabilityType;
 
   void setDisabilityType(String? text) {
+    if (text==null){
+      _disabilityType = "Healthy";
+    }
+    else{
     _disabilityType = text;
-    debugPrint("Updated emergencyContact: $disabilityType");
+    }
     update();
   }
 
@@ -81,10 +74,10 @@ class SignUpController extends GetxController {
         .collection("Users")
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .set({
+      "userId": FirebaseAuth.instance.currentUser!.uid,
       "userType": userType,
       "name": name,
       "email": email,
-      "password": password,
       "mobileNumber": mobileNumber,
       "EmergencyContact": emergencyContact,
       "Disability": disabilityType,
@@ -93,7 +86,7 @@ class SignUpController extends GetxController {
 
   Future<bool> registerUser(String email, String password) async {
     try {
-      var response = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+     await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );

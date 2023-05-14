@@ -109,6 +109,9 @@ class _SignUpTwoState extends State<SignUpTwo> {
                     height: 8,
                   ),
                   TextField(
+                    onChanged: (value) {
+                      signUpController.setName(value);
+                    },
                     onSubmitted: (value) {
                       signUpController.setName(value);
                     },

@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 List<String> list = <String>[
+  'Choose Gender:',
   'Male',
   'Female',
 ];
@@ -29,7 +30,7 @@ class _SignUpOneState extends State<SignUpOne> {
   FlowController flowController = Get.put(FlowController());
 
   bool isLoading = false;
-  String dropdownValue = 'Choose Gender:';
+  String dropdownValue = list.first;
   String _errorMessage = "";
 
   @override
@@ -172,12 +173,6 @@ class _SignUpOneState extends State<SignUpOne> {
                       height: 5,
                     ),
                     TextField(
-                      onChanged: (value) {
-                        signUpController.setPassword(value);
-                      },
-                      onSubmitted: (value) {
-                        signUpController.setPassword(value);
-                      },
                       obscureText: true,
                       controller: passwordController.value,
                       cursorColor: HexColor("#4f4f4f"),
@@ -207,8 +202,7 @@ class _SignUpOneState extends State<SignUpOne> {
                             buttonText: 'Process',
                             onPressed: () async {
                               if (signUpController.userType != null &&
-                                  signUpController.email != null &&
-                                  signUpController.password != null) {
+                                  signUpController.email != null) {
                                 Get.snackbar("Signing you to the Database",
                                     "Loading, Please wait..");
                                 try {
@@ -217,7 +211,7 @@ class _SignUpOneState extends State<SignUpOne> {
                                   });
                                   await signUpController.registerUser(
                                       signUpController.email.toString(),
-                                      signUpController.password.toString());
+                                      passwordController.value.toString());
                                   Get.snackbar("Success",
                                       "Please complete Registration");
                                   flowController.setFlow(2);

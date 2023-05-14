@@ -1,4 +1,5 @@
 import 'package:Angel/controller/flow_controller.dart';
+import 'package:Angel/controller/mainpage_controller.dart';
 import 'package:Angel/controller/sign_up_controller.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,8 +19,10 @@ class SignUpThree extends StatefulWidget {
 
 class _SignUpThreeState extends State<SignUpThree> {
   FlowController flowController = Get.put(FlowController());
-  var selectedCard = 'Healthy';
+  var selectedCard = "Healthy";
   SignUpController signUpController = Get.put(SignUpController());
+  mainpageController Mainpage = Get.put(mainpageController());
+
   bool isLoading = false;
 
   String _errorMessage = "";
@@ -227,6 +230,7 @@ class _SignUpThreeState extends State<SignUpThree> {
     setState(() {
       selectedCard = name;
       signUpController.setDisabilityType(name);
+      Mainpage.setDisabilityType(name);
     });
   }
 }

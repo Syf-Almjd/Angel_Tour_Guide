@@ -182,7 +182,6 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                                           child: CircularProgressIndicator())
                                       : MyButton(
                                           onPressed: () {
-                                            asd();
                                             signUserIn();
                                           },
                                           buttonText: 'Submit',
@@ -225,22 +224,4 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
     );
   }
 
-  Future<String> asd() async {
-    String? Ue, pE;
-    FirebaseFirestore.instance.collection('admins').get().then(
-      (value) {
-        value.docs.forEach((element) {
-          final data = element.data() as Map<String, dynamic>;
-          Ue = data['E'];
-          pE = data['p'];
-        });
-        return Ue ?? "he";
-      },
-      onError: (e) => () {
-        print("Error getting document: $e");
-        return e.toString();
-      },
-    );
-    return "";
-  }
 }
