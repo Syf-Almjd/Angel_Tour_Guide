@@ -47,7 +47,6 @@ class _pageDestinationState extends State<pageDestination> {
     mainPageController.setDonePage(true);
     return Scaffold(
       backgroundColor: HexColor("#fed8c3"),
-
       body: Column(
         children: [
           Container(

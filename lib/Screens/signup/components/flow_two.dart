@@ -111,7 +111,6 @@ class _SignUpTwoState extends State<SignUpTwo> {
                   TextField(
                     onSubmitted: (value) {
                       signUpController.setName(value);
-
                     },
                     controller: nameController.value,
                     cursorColor: HexColor("#4f4f4f"),

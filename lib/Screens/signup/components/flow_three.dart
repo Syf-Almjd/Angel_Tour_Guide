@@ -117,32 +117,35 @@ class _SignUpThreeState extends State<SignUpThree> {
                       SizedBox(
                         width: 300,
                         height: 60.0,
-                        child:   isLoading? const Center(child: CircularProgressIndicator()) : OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              backgroundColor: HexColor("#44564a"),
-                              primary: Colors.white,
-                              elevation: 20, //<-- SEE HERE
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                            ),
-                            onPressed: () async {
-                              try {
-                                setState(() {
-                                  isLoading = true;
-                                });
-                                signUpController.postSignUpDetails();
-                                Get.snackbar("Success", "Thank you");
-                                Get.offAll(() => const HomeScreenBody());
-                              } on FirebaseAuthException catch (ex) {
-                                setState(() {
-                                  isLoading = false;
-                                });
-                                Get.snackbar("Error", "${ex.message}");
-                              }
-                            },
-                            child: const Text(
-                              "Finish & Sign Up!",
-                            )),
+                        child: isLoading
+                            ? const Center(child: CircularProgressIndicator())
+                            : OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                  backgroundColor: HexColor("#44564a"),
+                                  primary: Colors.white,
+                                  elevation: 20, //<-- SEE HERE
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20.0)),
+                                ),
+                                onPressed: () async {
+                                  try {
+                                    setState(() {
+                                      isLoading = true;
+                                    });
+                                    signUpController.postSignUpDetails();
+                                    Get.snackbar("Success", "Thank you");
+                                    Get.offAll(() => const HomeScreenBody());
+                                  } on FirebaseAuthException catch (ex) {
+                                    setState(() {
+                                      isLoading = false;
+                                    });
+                                    Get.snackbar("Error", "${ex.message}");
+                                  }
+                                },
+                                child: const Text(
+                                  "Finish & Sign Up!",
+                                )),
                       )
                     ],
                   ),

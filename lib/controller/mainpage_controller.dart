@@ -1,4 +1,3 @@
-import 'package:Angel/controller/sign_up_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -105,25 +104,24 @@ class mainpageController extends GetxController {
     update();
   }
 
-  String checkOrder(){
+  String checkOrder() {
     if (package == "No Package was selected") {
       return "Custom order";
     } else {
       return "Package order";
     }
   }
+
   Future postFinishDetails() async {
     String orderDetials = checkOrder();
     await FirebaseFirestore.instance
         .collection("Orders")
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .set({
-
       "receipt Code": receiptCode,
       "receipt Name": receiptName,
       "receipt Phone Number": receiptNum,
       "receipt Email": receiptEmail,
-
       "Order Details": orderDetials,
       "Destination": destin,
       "Budget": bdgt,

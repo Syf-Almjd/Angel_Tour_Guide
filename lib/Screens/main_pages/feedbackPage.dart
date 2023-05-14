@@ -1,5 +1,4 @@
 import 'package:Angel/Screens/homepage/HomePage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -114,7 +113,6 @@ class _feedbackState extends State<feedback> {
                   ),
                   MyButton(
                       onPressed: () async {
-
                         const url =
                             'https://play.google.com/store/apps/details?id=com.mjd.angel&showAllReviews=true';
                         if (await canLaunch(url)) {
@@ -164,4 +162,3 @@ class _feedbackState extends State<feedback> {
         });
   }
 }
-

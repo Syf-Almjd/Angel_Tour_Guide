@@ -14,7 +14,8 @@ class AuthPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            if (FirebaseAuth.instance.currentUser!.uid == 'qTQ53sw0qzcsbBvAauKIYvIzu1Y2') {
+            if (FirebaseAuth.instance.currentUser!.uid ==
+                'qTQ53sw0qzcsbBvAauKIYvIzu1Y2') {
               return const AdminPage();
             }
             return const HomeScreenBody();

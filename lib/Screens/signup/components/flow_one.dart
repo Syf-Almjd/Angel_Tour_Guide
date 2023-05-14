@@ -28,7 +28,6 @@ class _SignUpOneState extends State<SignUpOne> {
   SignUpController signUpController = Get.put(SignUpController());
   FlowController flowController = Get.put(FlowController());
 
-
   bool isLoading = false;
   String dropdownValue = 'Choose Gender:';
   String _errorMessage = "";
@@ -136,7 +135,8 @@ class _SignUpOneState extends State<SignUpOne> {
                       decoration: InputDecoration(
                         hintText: "Elyana@gmail.com",
                         fillColor: HexColor("#f0f3f1"),
-                        contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                        contentPadding:
+                            const EdgeInsets.fromLTRB(20, 20, 20, 20),
                         hintStyle: GoogleFonts.poppins(
                           fontSize: 15,
                           color: HexColor("#8d8d8d"),
@@ -184,7 +184,8 @@ class _SignUpOneState extends State<SignUpOne> {
                       decoration: InputDecoration(
                         hintText: "*************",
                         fillColor: HexColor("#f0f3f1"),
-                        contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                        contentPadding:
+                            const EdgeInsets.fromLTRB(20, 20, 20, 20),
                         hintStyle: GoogleFonts.poppins(
                           fontSize: 15,
                           color: HexColor("#8d8d8d"),
@@ -200,30 +201,34 @@ class _SignUpOneState extends State<SignUpOne> {
                     const SizedBox(
                       height: 10,
                     ),
-                    isLoading? const Center(child: CircularProgressIndicator()) : MyButton(
-                        buttonText: 'Process',
-                        onPressed: () async {
-                          if (signUpController.userType != null &&
-                              signUpController.email != null &&
-                              signUpController.password != null) {
-                            Get.snackbar("Signing you to the Database",
-                                "Loading, Please wait..");
-                            try {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              await signUpController.registerUser(signUpController.email.toString(), signUpController.password.toString());
-                              Get.snackbar(
-                                  "Success", "Please complete Registration");
-                              flowController.setFlow(2);
-                            } on FirebaseAuthException catch (ex) {
-                              setState(() {
-                                isLoading = false;
-                              });
-                              Get.snackbar("Error", "${ex.message}");
-                            }
-                          }
-                        }),
+                    isLoading
+                        ? const Center(child: CircularProgressIndicator())
+                        : MyButton(
+                            buttonText: 'Process',
+                            onPressed: () async {
+                              if (signUpController.userType != null &&
+                                  signUpController.email != null &&
+                                  signUpController.password != null) {
+                                Get.snackbar("Signing you to the Database",
+                                    "Loading, Please wait..");
+                                try {
+                                  setState(() {
+                                    isLoading = true;
+                                  });
+                                  await signUpController.registerUser(
+                                      signUpController.email.toString(),
+                                      signUpController.password.toString());
+                                  Get.snackbar("Success",
+                                      "Please complete Registration");
+                                  flowController.setFlow(2);
+                                } on FirebaseAuthException catch (ex) {
+                                  setState(() {
+                                    isLoading = false;
+                                  });
+                                  Get.snackbar("Error", "${ex.message}");
+                                }
+                              }
+                            }),
                     const SizedBox(
                       height: 10,
                     ),

@@ -48,9 +48,14 @@ class _AdminPageState extends State<AdminPage> {
                   ),
                 )),
           ),
-          const Center(child: Padding(
+          const Center(
+              child: Padding(
             padding: EdgeInsets.all(10.0),
-            child: Text("Please Double click on the order to deleted it!\nThank you", style: TextStyle(fontWeight: FontWeight.w200), textAlign: TextAlign.center,),
+            child: Text(
+              "Please Double click on the order to deleted it!\nThank you",
+              style: TextStyle(fontWeight: FontWeight.w200),
+              textAlign: TextAlign.center,
+            ),
           )),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
@@ -74,28 +79,28 @@ class _AdminPageState extends State<AdminPage> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () async {
-                       await FirebaseFirestore.instance
+                        await FirebaseFirestore.instance
                             .collection('Orders')
                             .doc('${ORDERSdataID[index]}')
                             .delete();
                       },
-                        child: ListTile(
-                          title: Text('Order number: ${index + 1}'),
-                          subtitle: Column(
-                            children: [
-                              Text(
-                                "User ID: ${ORDERSdataID[index].toString()}",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Text(items[index]
-                                  .toString()
-                                  .replaceAll(",", "\n\n")),
-                            ],
-                          ),
+                      child: ListTile(
+                        title: Text('Order number: ${index + 1}'),
+                        subtitle: Column(
+                          children: [
+                            Text(
+                              "User ID: ${ORDERSdataID[index].toString()}",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(items[index]
+                                .toString()
+                                .replaceAll(",", "\n\n")),
+                          ],
                         ),
+                      ),
                     );
                   },
                 );

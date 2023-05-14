@@ -34,7 +34,6 @@ class _pageBudgetState extends State<pageBudget> {
     mainPageController.setDonePage(true);
     return Scaffold(
       backgroundColor: HexColor("#fed8c3"),
-
       body: Column(
         children: [
           Container(
@@ -86,7 +85,7 @@ class _pageBudgetState extends State<pageBudget> {
                 height: 70,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color:HexColor("#B9B3CA"),
+                    color: HexColor("#B9B3CA"),
                     borderRadius: BorderRadius.circular(20)),
                 child: Center(
                     child: Text(

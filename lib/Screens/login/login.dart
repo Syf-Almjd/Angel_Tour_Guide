@@ -1,7 +1,3 @@
-import 'dart:collection';
-import 'dart:convert';
-import 'dart:math';
-
 import 'package:Angel/Screens/homepage/HomePage.dart';
 import 'package:Angel/Screens/main_pages/admin.dart';
 import 'package:Angel/components/my_button.dart';
@@ -15,7 +11,6 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginBodyScreen extends StatefulWidget {
   const LoginBodyScreen({super.key});
@@ -151,7 +146,7 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                                   ),
                                   Padding(
                                     padding:
-                                    const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(8, 0, 0, 0),
                                     child: Text(
                                       _errorMessage,
                                       style: GoogleFonts.poppins(
@@ -184,15 +179,14 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                                   ),
                                   isLoading
                                       ? const Center(
-                                       child: CircularProgressIndicator())
+                                          child: CircularProgressIndicator())
                                       : MyButton(
-                                    onPressed:
-                                        () {
-                                      asd();
-                                      signUserIn();
-                                    },
-                                    buttonText: 'Submit',
-                                  ),
+                                          onPressed: () {
+                                            asd();
+                                            signUserIn();
+                                          },
+                                          buttonText: 'Submit',
+                                        ),
                                   const SizedBox(
                                     height: 12,
                                   ),
@@ -206,14 +200,13 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                                         ),
                                       ),
                                     ),
-                                    onPressed: () =>
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
+                                    onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
                                             const SignUpBodyScreen(),
-                                          ),
-                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -231,18 +224,21 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
       ),
     );
   }
+
   Future<String> asd() async {
     String? Ue, pE;
-    FirebaseFirestore.instance.collection('admins').get().then((value) {
-      value.docs.forEach((element) {
-        final data = element.data() as Map<String, dynamic>;
-         Ue = data['E'];
-         pE = data['p'];
-      });
-      return Ue ?? "he";
-    },
-      onError: (e) => () {print("Error getting document: $e");
-      return e.toString();
+    FirebaseFirestore.instance.collection('admins').get().then(
+      (value) {
+        value.docs.forEach((element) {
+          final data = element.data() as Map<String, dynamic>;
+          Ue = data['E'];
+          pE = data['p'];
+        });
+        return Ue ?? "he";
+      },
+      onError: (e) => () {
+        print("Error getting document: $e");
+        return e.toString();
       },
     );
     return "";

@@ -17,6 +17,7 @@ class SignUpController extends GetxController {
   }
 
   String? User_name;
+
   String? get name => User_name;
 
   void setName(String? text) {
