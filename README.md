@@ -1,3 +1,4 @@
+![logoAngel](https://github.com/Syf-Almjd/Angel_Tour_Guide/assets/70374999/895798f7-cb43-43db-a145-b6b32170a38e)
 Angel Tour Guide is a mobile application that provides an interactive and informative tour guide experience for people visiting Malaysia. The app is designed to cater to the needs of travelers of all ages and abilities, including those with disabilities.
 
 The app's user-friendly interface allows users to easily navigate through its various features, such as selecting specific locations to visit, exploring various attractions, and discovering the cultural heritage of Malaysia. Additionally, Angel Tour Guide provides various options for users with disabilities to customize their tour experiences.
@@ -8,8 +9,7 @@ The app also provides an interactive map of Malaysia, displaying various tourist
 
 Angel Tour Guide also includes a feature that allows users to book tours and activities directly through the app, making it easy and convenient to plan their trip. Furthermore, the app provides an option for users to connect with local guides and experts for more personalized and authentic tour experiences.
 
-![logoAngel](https://github.com/Syf-Almjd/Angel_Tour_Guide/assets/70374999/895798f7-cb43-43db-a145-b6b32170a38e)
-![Uploading BackLogoAngel.png…]()
+![BackLogoAngel](https://github.com/Syf-Almjd/Angel_Tour_Guide/assets/70374999/a16e8530-19ce-4024-b532-51725152a29b)
 
 
 The App winning the goal medal in Penang International Invention, Innovation and Design 2023
