@@ -7,3 +7,12 @@ One of the unique features of Angel Tour Guide is its accessibility feature, whi
 The app also provides an interactive map of Malaysia, displaying various tourist destinations, landmarks, and points of interest, along with detailed descriptions and photos. Users can select specific locations and attractions to create a personalized itinerary, and the app will provide a step-by-step guide on how to get there, along with estimated travel times.
 
 Angel Tour Guide also includes a feature that allows users to book tours and activities directly through the app, making it easy and convenient to plan their trip. Furthermore, the app provides an option for users to connect with local guides and experts for more personalized and authentic tour experiences.
+
+![logoAngel](https://github.com/Syf-Almjd/Angel_Tour_Guide/assets/70374999/895798f7-cb43-43db-a145-b6b32170a38e)
+![Uploading BackLogoAngel.png…]()
+
+
+The App winning the goal medal in Penang International Invention, Innovation and Design 2023
+
+![ATG](https://github.com/Syf-Almjd/Angel_Tour_Guide/assets/70374999/367491a3-1045-4857-99c6-39074d0c6561)
+![image](https://github.com/Syf-Almjd/Angel_Tour_Guide/assets/70374999/baf9ef29-12fe-4a8e-80d1-f91301337173)
