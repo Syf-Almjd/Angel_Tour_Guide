@@ -82,12 +82,15 @@ class _IntroSliderState extends State<IntroSlider> {
                             onTap: () {
                               controller.jumpToPage(numberOfPages - 1);
                             },
-                            child: const Text(
-                              "\n SKIP",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.amber),
+                            child: const Align(
+                              alignment: Alignment.bottomRight,
+                              child: Text(
+                                "\n SKIP",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.amber), textAlign: TextAlign.right,
+                              ),
                             ),
                           ),
                   ),

@@ -37,123 +37,127 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: HexColor("#fed8c3"),
-      body: Column(
-        children: [
-          Column(
+      body: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Column(
             children: [
-              Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: HexColor('#ffffff'),
-                      borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(50),
-                          bottomRight: Radius.circular(50))),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 45, 30, 20),
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Welcome to Angle Tour Guide 𓆩♡𓆪",
-                          style: TextStyle(fontSize: 10, color: Colors.black),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        GestureDetector(
-                          onTapDown: (_) =>
-                              setState(() => _isClickedbtn1 = true),
-                          onTapCancel: () =>
-                              setState(() => _isClickedbtn1 = false),
-                          onTapUp: (_) =>
-                              setState(() => _isClickedbtn1 = false),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.easeIn,
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: _isClickedbtn1 == false
-                                  ? Colors.amber
-                                  : HexColor("#ffffff"),
-                              border: Border.all(
-                                  strokeAlign: StrokeAlign.center,
+              Column(
+                children: [
+                  Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: HexColor('#ffffff'),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(50),
+                              bottomRight: Radius.circular(50))),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(30, 45, 30, 20),
+                        child: Column(
+                          children: [
+                            const Text(
+                              "Welcome to Angle Tour Guide 𓆩♡𓆪",
+                              style: TextStyle(fontSize: 10, color: Colors.black),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            GestureDetector(
+                              onTapDown: (_) =>
+                                  setState(() => _isClickedbtn1 = true),
+                              onTapCancel: () =>
+                                  setState(() => _isClickedbtn1 = false),
+                              onTapUp: (_) =>
+                                  setState(() => _isClickedbtn1 = false),
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 100),
+                                curve: Curves.easeIn,
+                                padding: const EdgeInsets.all(20),
+                                decoration: BoxDecoration(
                                   color: _isClickedbtn1 == false
                                       ? Colors.amber
-                                      : Colors.green.withOpacity(1),
-                                  style: BorderStyle.solid,
-                                  width: 0.75),
-                              // color: HexColor("#44564a"),
-                              borderRadius: BorderRadius.circular(20),
+                                      : HexColor("#ffffff"),
+                                  border: Border.all(
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      color: _isClickedbtn1 == false
+                                          ? Colors.amber
+                                          : Colors.green.withOpacity(1),
+                                      style: BorderStyle.solid,
+                                      width: 0.75),
+                                  // color: HexColor("#44564a"),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: InkWell(
+                                    onTap: () => {_activateAlan()},
+                                    child: const Column(
+                                      children: [
+                                        Text(
+                                          "Let's Find Your Dream TRAVEL!",
+                                          style: TextStyle(
+                                              fontSize: 16, color: Colors.black54),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        Padding(padding: EdgeInsets.all(2)),
+                                        Text(
+                                          "Click to activate AI Assistance!",
+                                          style: TextStyle(
+                                              fontSize: 7, color: Colors.black54),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                    )),
+                              ),
                             ),
-                            child: InkWell(
-                                onTap: () => {_activateAlan()},
-                                child: Column(
-                                  children: const [
-                                    Text(
-                                      "Let's Find Your Dream TRAVEL!",
-                                      style: TextStyle(
-                                          fontSize: 16, color: Colors.black54),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    Padding(padding: EdgeInsets.all(2)),
-                                    Text(
-                                      "Click to activate AI Assistance!",
-                                      style: TextStyle(
-                                          fontSize: 7, color: Colors.black54),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                )),
-                          ),
+                            const Padding(padding: EdgeInsets.all(5)),
+                            const Text(
+                              "Where is your next Journey?",
+                              style: TextStyle(fontSize: 10, color: Colors.grey),
+                            ),
+                          ],
                         ),
-                        const Padding(padding: EdgeInsets.all(5)),
-                        const Text(
-                          "Where is your next Journey?",
-                          style: TextStyle(fontSize: 10, color: Colors.grey),
-                        ),
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                            child: MFbuilder(
+                                name: "Destination",
+                                img: "assets/map.jpg",
+                                pageNum: 1)),
+                        const Padding(padding: EdgeInsets.all(20)),
+                        Expanded(
+                            child: MFbuilder(
+                                name: "Budget",
+                                img: "assets/card.jpg",
+                                pageNum: 2)),
                       ],
                     ),
-                  )),
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                        child: MFbuilder(
-                            name: "Destination",
-                            img: "assets/map.jpg",
-                            pageNum: 1)),
-                    const Padding(padding: EdgeInsets.all(20)),
-                    Expanded(
-                        child: MFbuilder(
-                            name: "Budget",
-                            img: "assets/card.jpg",
-                            pageNum: 2)),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                        child: MFbuilder(
-                            name: "Travel Duration",
-                            img: "assets/travel.jpg",
-                            pageNum: 3)),
-                    const Padding(padding: EdgeInsets.all(20)),
-                    Expanded(
-                        child: MFbuilder(
-                            name: "Explore More...",
-                            img: "assets/explore.jpg",
-                            pageNum: 4)),
-                  ],
-                ),
-              ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                            child: MFbuilder(
+                                name: "Travel Duration",
+                                img: "assets/travel.jpg",
+                                pageNum: 3)),
+                        const Padding(padding: EdgeInsets.all(20)),
+                        Expanded(
+                            child: MFbuilder(
+                                name: "Explore More...",
+                                img: "assets/explore.jpg",
+                                pageNum: 4)),
+                      ],
+                    ),
+                  ),
+                ],
+              )
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

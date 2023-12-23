@@ -68,7 +68,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'angle-c53f2.appspot.com',
     iosClientId:
         '823861954017-gpgq6hel34ntai145643co26d53i1nsq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.angel',
+    iosBundleId: 'com.mjd.angel',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -79,6 +79,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'angle-c53f2.appspot.com',
     iosClientId:
         '823861954017-gpgq6hel34ntai145643co26d53i1nsq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.angel',
+    iosBundleId: 'com.mjd.angel',
   );
 }

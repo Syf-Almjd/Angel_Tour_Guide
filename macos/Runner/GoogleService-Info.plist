@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.angel</string>
+	<string>com.mjd.angel</string>
 	<key>PROJECT_ID</key>
 	<string>angel-c53f2</string>
 	<key>STORAGE_BUCKET</key>

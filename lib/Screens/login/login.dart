@@ -80,144 +80,138 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: HexColor("#fed8c3"),
-        body: ListView(
-          padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
-          reverse: true,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Image.asset(
-                  'assets/logo.png',
-                  height: 200,
-                  width: 200,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Stack(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: HexColor("#ffffff"),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
-                        child: Column(
-                          children: [
-                            Text(
-                              "Log In",
-                              style: GoogleFonts.poppins(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                color: HexColor("#4f4f4f"),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(15, 0, 0, 20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Email",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                      color: HexColor("#8d8d8d"),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 12,
-                                  ),
-                                  MyTextField(
-                                    onChanged: (() {
-                                      validateEmail(emailController.text);
-                                    }),
-                                    controller: emailController,
-                                    hintText: "Elyana@gmail.com",
-                                    obscureText: false,
-                                    prefixIcon: const Icon(Icons.mail_outline),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                                    child: Text(
-                                      _errorMessage,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 12,
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "Password",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                      color: HexColor("#8d8d8d"),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  MyTextField(
-                                    controller: passwordController,
-                                    hintText: "***********",
-                                    obscureText: true,
-                                    prefixIcon: const Icon(Icons.lock_outline),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  isLoading
-                                      ? const Center(
-                                          child: CircularProgressIndicator())
-                                      : MyButton(
-                                          onPressed: () {
-                                            signUserIn();
-                                          },
-                                          buttonText: 'Submit',
-                                        ),
-                                  const SizedBox(
-                                    height: 12,
-                                  ),
-                                  TextButton(
-                                    child: Center(
-                                      child: Text(
-                                        "Sign Up Here!",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 15,
-                                          color: HexColor("#44564a"),
-                                        ),
-                                      ),
-                                    ),
-                                    onPressed: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SignUpBodyScreen(),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              ],
+            Image.asset(
+              'assets/logo.png',
+              height: 200,
+              width: 200,
             ),
+            const SizedBox(
+              height: 5,
+            ),
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: HexColor("#ffffff"),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Log In",
+                          style: GoogleFonts.poppins(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: HexColor("#4f4f4f"),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(15, 0, 0, 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Email",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  color: HexColor("#8d8d8d"),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              MyTextField(
+                                onChanged: (() {
+                                  validateEmail(emailController.text);
+                                }),
+                                controller: emailController,
+                                hintText: "Elyana@gmail.com",
+                                obscureText: false,
+                                prefixIcon: const Icon(Icons.mail_outline),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                child: Text(
+                                  _errorMessage,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Password",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  color: HexColor("#8d8d8d"),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              MyTextField(
+                                controller: passwordController,
+                                hintText: "***********",
+                                obscureText: true,
+                                prefixIcon: const Icon(Icons.lock_outline),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              isLoading
+                                  ? const Center(
+                                      child: CircularProgressIndicator())
+                                  : MyButton(
+                                      onPressed: () {
+                                        signUserIn();
+                                      },
+                                      buttonText: 'Submit',
+                                    ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              TextButton(
+                                child: Center(
+                                  child: Text(
+                                    "Sign Up Here!",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 15,
+                                      color: HexColor("#44564a"),
+                                    ),
+                                  ),
+                                ),
+                                onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SignUpBodyScreen(),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-package com.example.angel
+package com.mjd.angel
 
 import io.flutter.embedding.android.FlutterActivity
 

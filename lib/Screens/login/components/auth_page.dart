@@ -15,7 +15,7 @@ class AuthPage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (FirebaseAuth.instance.currentUser!.uid ==
-                'qTQ53sw0qzcsbBvAauKIYvIzu1Y2') {
+                'Q8lZW7V2z8djzJ34WbkXqRzVeGs1') {
               return const AdminPage();
             }
             return const HomeScreenBody();
